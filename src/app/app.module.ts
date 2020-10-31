@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { MainComponent } from './_pages/main/main.component';
 import { NavBarComponent } from './_layouts/nav-bar/nav-bar.component';
 import { NotesListComponent } from './_pages/notes-list/notes-list.component';
+import { NoteCardComponent } from './_components/note-card/note-card.component';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { NotesListComponent } from './_pages/notes-list/notes-list.component';
     AppComponent,
     MainComponent,
     NavBarComponent,
-    NotesListComponent
+    NotesListComponent,
+    NoteCardComponent
   ],
   imports: [
     BrowserModule,

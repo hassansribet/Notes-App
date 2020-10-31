@@ -14,11 +14,9 @@ export class NotesListComponent implements OnInit {
 
   focusIn(): void {
     this.inputSelected = true;
-    console.log(this.inputSelected);
   }
 
   focusOut(): void {
     this.inputSelected = false;
-    console.log(this.inputSelected);
   }
 }
