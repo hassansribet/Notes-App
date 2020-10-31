@@ -7,6 +7,8 @@ import { MainComponent } from './_pages/main/main.component';
 import { NavBarComponent } from './_layouts/nav-bar/nav-bar.component';
 import { NotesListComponent } from './_pages/notes-list/notes-list.component';
 import { NoteCardComponent } from './_components/note-card/note-card.component';
+import { NoteDetailsComponent } from './_pages/note-details/note-details.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -15,11 +17,13 @@ import { NoteCardComponent } from './_components/note-card/note-card.component';
     MainComponent,
     NavBarComponent,
     NotesListComponent,
-    NoteCardComponent
+    NoteCardComponent,
+    NoteDetailsComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

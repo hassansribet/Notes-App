@@ -1,0 +1,38 @@
+<div class="form-container">
+  <form [formGroup]="noteForm" (ngSubmit)="onSubmit()">
+    <div class="field">
+      <label for="title" class="label">Title</label>
+      <div class="control">
+        <input
+          id="title"
+          formControlName="title"
+          class="input is-small"
+          [ngClass]="{ 'is-danger': !f.title.untouched && noteForm.invalid && f.title.errors }"
+          type="text"
+          placeholder="Enter a title..."
+          required="true"
+        >
+      </div>
+      <p *ngIf="!f.title.untouched && noteForm.invalid && f.title.errors.required" class="help is-danger error-message">Title is required</p>
+    </div>
+
+    <br />
+
+    <div class="field">
+      <label for="description" class="label">Description</label>
+      <div class="control">
+        <textarea
+          id="description"
+          formControlName="description"
+          class="textarea"
+          placeholder="Enter a description"
+        ></textarea>
+      </div>
+    </div>
+
+    <div class="actions is-grouped is-pulled-right">
+      <button class="button is-small is-text" type="button"><span class="cancel">Cancel</span></button>
+      <button class="button is-small is-primary" type="submit" [disabled]="noteForm.invalid"><span class="save">Save</span></button>
+    </div>
+  </form>
+</div>
