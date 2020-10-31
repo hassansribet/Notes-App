@@ -3,12 +3,17 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './_pages/home/home.component';
+import { MainComponent } from './_pages/main/main.component';
+import { NavBarComponent } from './_layouts/nav-bar/nav-bar.component';
+import { NotesListComponent } from './_pages/notes-list/notes-list.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    MainComponent,
+    NavBarComponent,
+    NotesListComponent
   ],
   imports: [
     BrowserModule,

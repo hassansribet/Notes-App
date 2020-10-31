@@ -1,0 +1,23 @@
+<div class="main-container">
+  <div class="search-bar">
+    <div class="control has-icons-left has-icons-right">
+      <input
+        class="input is-small"
+        type="text"
+        placeholder="Search..."
+        (focus)="focusIn()"
+        (focusout)="focusOut()"
+      >
+      <span class="icon is-small is-left">
+        <i class="fas fa-search"></i>
+      </span>
+      <span *ngIf="inputSelected" class="icon is-small is-right">
+        <i class="fas fa-times-circle"></i>
+      </span>
+    </div>
+  </div>
+
+  <div class="notes-list">
+
+  </div>
+</div>
