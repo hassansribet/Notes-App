@@ -20,6 +20,6 @@
   </div>
 
   <div class="notes-list">
-    <app-note-card title="Hassan Sriebt" description="I'm Hassan Sribet"></app-note-card>
+    <app-note-card *ngFor="let n of notes;" [title]="n.title" [description]="n.description"></app-note-card>
   </div>
 </div>

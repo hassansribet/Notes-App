@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NotesService } from '../../_shared/services/notes.service';
+import { Note } from '../../_shared/models/note.model';
 
 @Component({
   selector: 'app-notes-list',
@@ -7,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NotesListComponent implements OnInit {
   inputSelected = false;
-  constructor() { }
+  notes: Note[] = [];
+  constructor(
+    private notesService: NotesService
+  ) { }
 
   ngOnInit(): void {
+    this.notesService.getNotes().subscribe(data => {
+      this.notes = data.map(e => {
+        return {
+          id: e.payload.doc.id,
+          ...e.payload.doc.data()
+        } as Note;
+      });
+
+      console.log(this.notes);
+    });
   }
 
   focusIn(): void {
