@@ -2,3 +2,16 @@
 
 @import './customizedStyle.scss';
 @import '../node_modules/bulma/bulma.sass';
+@import '~ngx-toastr/toastr';
+
+#toast-container>.toast-success {
+  background-color: $light-blue !important;
+}
+
+#toast-container>.toast-error {
+  background-color: #e74c3c !important;
+}
+
+#toast-container>.toast-warning {
+  background-color: $yellow !important;
+}

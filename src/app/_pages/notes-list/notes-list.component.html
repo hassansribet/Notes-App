@@ -1,5 +1,5 @@
 <div class="main-container">
-  <div class="search-bar">
+  <div *ngIf="notes.length > 0" class="search-bar">
     <div class="control has-icons-left has-icons-right">
       <input
         class="input is-small"
@@ -26,6 +26,11 @@
       (clickDelete)="deleteNote($event)"></app-note-card>
   </div>
 
+  <div *ngIf="notes.length === 0 && !loading" class="no-notes">
+    <img src="assets/images/notes.svg" alt="notes">
+    <p>No note found. <a routerLink="/note">Try to add first one.</a></p>
+  </div>
+
   <button [routerLink]="['/note']" class="button floating-add-button is-primary">
     <span class="icon">
       <i class="fas fa-plus"></i>
@@ -33,3 +38,4 @@
     <span>Add</span>
   </button>
 </div>
+

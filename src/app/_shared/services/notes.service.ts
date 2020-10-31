@@ -13,7 +13,7 @@ export class NotesService {
   ) { }
 
   getNotes(): any {
-    return this.firestore.collection(this.notesCollectionName).snapshotChanges();
+    return this.firestore.collection(this.notesCollectionName, ref => ref.orderBy('createdAt', 'desc')).snapshotChanges();
   }
 
   addNote(note: Note): Promise<any> {
@@ -24,9 +24,7 @@ export class NotesService {
     return this.firestore.doc(this.notesCollectionName + '/' + note.id).update(note);
   }
 
-  deleteNote(id: string): any {
-    this.firestore.doc(this.notesCollectionName + '/' + id).delete().then(r => {
-    console.log('note deleted successfully!');
-    });
+  deleteNote(id: string): Promise<any> {
+    return this.firestore.doc(this.notesCollectionName + '/' + id).delete();
   }
 }

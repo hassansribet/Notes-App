@@ -11,7 +11,7 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "~10.2.0",
+    "@angular/animations": "^10.2.1",
     "@angular/common": "~10.2.0",
     "@angular/compiler": "~10.2.0",
     "@angular/core": "~10.2.0",
@@ -23,6 +23,7 @@
     "bulma": "^0.9.1",
     "firebase": "^8.0.0",
     "ngx-timeago": "^2.0.0",
+    "ngx-toastr": "^13.1.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"

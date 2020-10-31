@@ -19,9 +19,17 @@
 
     font-weight: bold;
   }
+
+  .no-notes {
+    text-align: center;
+
+    img {
+      width: 200px;
+    }
+  }
 }
 
 .notes-list {
-  margin-top: 35px;
+  margin-top: 20px;
 }
 

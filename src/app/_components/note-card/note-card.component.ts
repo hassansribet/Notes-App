@@ -16,7 +16,7 @@ export class NoteCardComponent implements OnInit, AfterViewInit {
   @ViewChild('bodyText') bodyText: ElementRef<HTMLElement>;
   @ViewChild('truncator') truncator: ElementRef<HTMLElement>;
 
-  currentDate = new Date();
+  live = false;
   constructor(
     private router: Router,
     private renderer: Renderer2,
