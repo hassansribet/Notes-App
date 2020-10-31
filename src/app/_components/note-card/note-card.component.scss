@@ -29,6 +29,10 @@
       font-weight: bold;
       color: $light-blue;
       margin-bottom: 10px !important;
+
+      &:hover {
+        text-decoration: underline;
+      }
     }
 
     .body {
@@ -85,4 +89,8 @@
       background-color: darken($light-red, 8%);
     }
   }
+}
+
+.createdAt {
+  color: #555555;
 }

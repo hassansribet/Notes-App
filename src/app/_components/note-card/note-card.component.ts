@@ -1,4 +1,6 @@
-import {AfterViewInit, Component, ElementRef, Input, OnInit, Renderer2, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, EventEmitter, Input, OnInit, Output, Renderer2, ViewChild} from '@angular/core';
+import {Note} from '../../_shared/models/note.model';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-note-card',
@@ -6,13 +8,19 @@ import {AfterViewInit, Component, ElementRef, Input, OnInit, Renderer2, ViewChil
   styleUrls: ['./note-card.component.scss']
 })
 export class NoteCardComponent implements OnInit, AfterViewInit {
-  @Input() title: string;
-  @Input() description: string;
+  @Input() note: Note;
+
+  @Output() clickDelete: EventEmitter<string> = new EventEmitter<string>();
+  @Output() saveNote: EventEmitter<string> = new EventEmitter<string>();
 
   @ViewChild('bodyText') bodyText: ElementRef<HTMLElement>;
   @ViewChild('truncator') truncator: ElementRef<HTMLElement>;
 
-  constructor(private renderer: Renderer2) { }
+  currentDate = new Date();
+  constructor(
+    private router: Router,
+    private renderer: Renderer2,
+  ) { }
 
   ngOnInit(): void {
 
@@ -27,6 +35,40 @@ export class NoteCardComponent implements OnInit, AfterViewInit {
     } else {
       this.renderer.setStyle(this.truncator.nativeElement, 'display', 'none');
     }
+  }
+
+  onDeleteNote(): void {
+    this.clickDelete.emit(this.note.id);
+  }
+
+  /**
+   *
+   * @param action: add or update
+   * navigate to noteDetails page for add or update a note
+   */
+  goToNote(action: string, noteP?: Note): any {
+    let note: Note = new Note();
+    switch (action) {
+      case 'add':
+        note = {
+          id: '',
+          title: '',
+          description: ''
+        };
+        break;
+      case 'update':
+        note = noteP;
+        break;
+    }
+
+    this.router.navigate(
+      ['note/'],
+      {
+        state: {
+          action,
+          note
+        }
+      }).then();
   }
 
 }

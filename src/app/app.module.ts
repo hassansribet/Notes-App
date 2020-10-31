@@ -15,6 +15,8 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { environment } from '../environments/environment';
 
+import { TimeagoModule } from 'ngx-timeago';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,14 +24,15 @@ import { environment } from '../environments/environment';
     NavBarComponent,
     NotesListComponent,
     NoteCardComponent,
-    NoteDetailsComponent
+    NoteDetailsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    TimeagoModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

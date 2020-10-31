@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { Note } from '../models/note.model';
 
 @Injectable({
   providedIn: 'root'
@@ -13,5 +14,19 @@ export class NotesService {
 
   getNotes(): any {
     return this.firestore.collection(this.notesCollectionName).snapshotChanges();
+  }
+
+  addNote(note: Note): Promise<any> {
+    return this.firestore.collection(this.notesCollectionName).add(note);
+  }
+
+  updateNote(note: Note): Promise<any> {
+    return this.firestore.doc(this.notesCollectionName + '/' + note.id).update(note);
+  }
+
+  deleteNote(id: string): any {
+    this.firestore.doc(this.notesCollectionName + '/' + id).delete().then(r => {
+    console.log('note deleted successfully!');
+    });
   }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NotesService } from '../../_shared/services/notes.service';
 import { Note } from '../../_shared/models/note.model';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-notes-list',
@@ -10,11 +11,18 @@ import { Note } from '../../_shared/models/note.model';
 export class NotesListComponent implements OnInit {
   inputSelected = false;
   notes: Note[] = [];
+
   constructor(
-    private notesService: NotesService
+    private router: Router,
+    private notesService: NotesService,
   ) { }
 
   ngOnInit(): void {
+    console.log(new Date());
+    if (window.history.state.action !== undefined && window.history.state.result !== undefined) {
+      console.log(window.history.state.action, window.history.state.result);
+    }
+
     this.notesService.getNotes().subscribe(data => {
       this.notes = data.map(e => {
         return {
@@ -22,8 +30,6 @@ export class NotesListComponent implements OnInit {
           ...e.payload.doc.data()
         } as Note;
       });
-
-      console.log(this.notes);
     });
   }
 
@@ -34,4 +40,10 @@ export class NotesListComponent implements OnInit {
   focusOut(): void {
     this.inputSelected = false;
   }
+
+  deleteNote(noteId: any): void {
+    this.notesService.deleteNote(noteId);
+  }
 }
+
+

@@ -20,6 +20,16 @@
   </div>
 
   <div class="notes-list">
-    <app-note-card *ngFor="let n of notes;" [title]="n.title" [description]="n.description"></app-note-card>
+    <app-note-card
+      *ngFor="let n of notes;"
+      [note]="n"
+      (clickDelete)="deleteNote($event)"></app-note-card>
   </div>
+
+  <button [routerLink]="['/note']" class="button floating-add-button is-primary">
+    <span class="icon">
+      <i class="fas fa-plus"></i>
+    </span>
+    <span>Add</span>
+  </button>
 </div>

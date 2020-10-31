@@ -1,3 +1,6 @@
+{{ action }}
+{{ note.id }}
+
 <div class="form-container">
   <form [formGroup]="noteForm" (ngSubmit)="onSubmit()">
     <div class="field">
@@ -31,8 +34,22 @@
     </div>
 
     <div class="actions is-grouped is-pulled-right">
-      <button class="button is-small is-text" type="button"><span class="cancel">Cancel</span></button>
-      <button class="button is-small is-primary" type="submit" [disabled]="noteForm.invalid"><span class="save">Save</span></button>
+      <button
+        class="button is-small is-text"
+        (click)="onClickCancel()"
+        type="button"
+        [disabled]="loading"
+      >
+        <span class="cancel">Cancel</span>
+      </button>
+      <button
+        class="button is-small is-primary btn-save"
+        type="submit"
+        [ngClass]="{ ' is-link is-loading': loading }"
+        [disabled]="noteForm.invalid || loading"
+      >
+        <span *ngIf="!loading" class="save">Save</span>
+      </button>
     </div>
   </form>
 </div>
