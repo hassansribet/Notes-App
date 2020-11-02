@@ -1,6 +1,6 @@
 # NotesApp
 
-![angular](https://img.shields.io/badge/angular-10.2.0-red?style=flat-square&logo=angular) ![npm](https://img.shields.io/npm/v/npm?color=blue&logo=npm&style=flat-square)
+![angular](https://img.shields.io/badge/angular-10.2.0-red?style=flat-square&logo=angular) ![npm](https://img.shields.io/badge/npm-6.12.1-blue?style=flat-square&logo=npm)
 
 # Install dependencies
 
