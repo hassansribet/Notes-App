@@ -1,14 +1,24 @@
 # NotesApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.2.0.
+![angular](https://img.shields.io/badge/angular-10.2.0-red?style=flat-square&logo=angular) ![npm](https://img.shields.io/npm/v/npm?color=blue&logo=npm&style=flat-square)
 
 # Install dependencies
-npm install
+
+```sh
+$ cd Notes-App
+$ npm install
+```
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+```sh
+$ ng serve
+```
+Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+```sh
+$ ng build
+```
+The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
